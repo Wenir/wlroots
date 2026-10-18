@@ -27,6 +27,7 @@
 #include <wlr/types/wlr_linux_dmabuf_v1.h>
 #include <wlr/util/addon.h>
 #include <wlr/util/box.h>
+#include <wlr/graphwl-common.h>
 
 struct wlr_output;
 struct wlr_output_layout;
@@ -458,7 +459,7 @@ void wlr_scene_surface_send_frame_done(struct wlr_scene_surface *scene_surface,
  * The color argument must be a premultiplied color value.
  */
 struct wlr_scene_rect *wlr_scene_rect_create(struct wlr_scene_tree *parent,
-		int width, int height, const float color[static 4]);
+		int width, int height, const float color[WLR_STATIC 4]);
 
 /**
  * Change the width and height of an existing rectangle node.
@@ -470,7 +471,7 @@ void wlr_scene_rect_set_size(struct wlr_scene_rect *rect, int width, int height)
  *
  * The color argument must be a premultiplied color value.
  */
-void wlr_scene_rect_set_color(struct wlr_scene_rect *rect, const float color[static 4]);
+void wlr_scene_rect_set_color(struct wlr_scene_rect *rect, const float color[WLR_STATIC 4]);
 
 /**
  * Add a node displaying a buffer to the scene-graph.

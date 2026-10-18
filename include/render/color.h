@@ -2,6 +2,7 @@
 #define RENDER_COLOR_H
 
 #include <wlr/render/color.h>
+#include <wlr/graphwl-common.h>
 
 void wlr_color_transform_init(struct wlr_color_transform *tr,
 	enum wlr_color_transform_type type);
@@ -19,7 +20,7 @@ void color_transform_lcms2_finish(struct wlr_color_transform_lcms2 *tr);
  * Evaluate a LCMS2 color transform for a given RGB triplet.
  */
 void color_transform_lcms2_eval(struct wlr_color_transform_lcms2 *tr,
-	float out[static 3], const float in[static 3]);
+	float out[WLR_STATIC 3], const float in[WLR_STATIC 3]);
 
 /**
  * Create a simplified / normalized wlr_color_transform pipeline.
@@ -34,7 +35,7 @@ bool color_transform_compose(struct wlr_color_transform **result,
 /**
  * Compute the matrix to convert RGB color values to CIE 1931 XYZ.
  */
-void wlr_color_primaries_to_xyz(const struct wlr_color_primaries *primaries, float matrix[static 9]);
+void wlr_color_primaries_to_xyz(const struct wlr_color_primaries *primaries, float matrix[WLR_STATIC 9]);
 
 /**
  * Get default luminances for a transfer function.
